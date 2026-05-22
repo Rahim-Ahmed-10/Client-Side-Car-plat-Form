@@ -1,10 +1,44 @@
+"use client";
 import React from 'react';
-import { Input, Button } from "@heroui/react"; // HeroUI ব্যবহার করলে
+import { Input, Button, Form } from "@heroui/react"; // HeroUI ব্যবহার করলে
 import { FcGoogle } from "react-icons/fc";
+import { signIn } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
+import { ArrowRight } from '@gravity-ui/icons';
+import toast from 'react-hot-toast';
 
 
 
 const LoginPage = () => {
+   
+     const router = useRouter();
+  const handleLogin = async (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(e.currentTarget);
+  
+      const { name, email, password } = Object.fromEntries(
+        formData.entries()
+      );
+  
+      const { data, error } = await signIn.email({
+        name,
+        email,
+        password,
+        callbackURL: "/",
+      });
+  
+      if (error) {
+        console.log(error);
+        toast.error(error.message || "Sign up failed");
+        return;
+      }
+  
+      router.push("/");
+  
+      toast.success("Account created successfully!");
+    };
+  
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
       <div className="w-full max-w-[400px] rounded-2xl bg-white p-8 shadow-lg">
@@ -36,35 +70,56 @@ const LoginPage = () => {
           <div className="flex-1" />
         </div>
 
-        {/* ফরম ইনপুট */}
-        <div className="space-y-4">
+        {/* FORM INPUT */}
+           <Form onSubmit={handleLogin} className="space-y-6">
+
+          {/* Email */}
           <div>
-            <label className="text-sm font-semibold mb-1 block">Email Address</label>
-            <Input 
-              type="email" 
-              placeholder="Enter your email" 
+            <label className="text-sm font-bold mb-2 block text-gray-700">
+              Email Address
+            </label>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
               variant="bordered"
+              radius="lg"
               className="w-full"
+              required
             />
           </div>
           
+
+          {/* Password */}
           <div>
-            <label className="text-sm font-semibold mb-1 block">Password</label>
-            <Input 
-              type="password" 
-              placeholder="••••••••" 
+            <label className="text-sm font-bold mb-2 block text-gray-700">
+              Password
+            </label>
+            <Input
+              type="password"
+              name="password"
+              placeholder="••••••••"
               variant="bordered"
+              radius="lg"
               className="w-full"
+              required
             />
             <div className="text-right mt-1">
               <a href="#" className="text-xs text-blue-600 hover:underline">Forgot password?</a>
             </div>
           </div>
 
-          <Button color="primary" className="w-full font-bold py-6 text-lg bg-blue-600">
-            Sign In
+          {/* Submit Button */}
+          <Button
+            type="submit"
+            color="primary"
+            className="w-full font-bold py-7 text-lg bg-[#0070f3] flex items-center justify-center gap-2"
+            radius="lg"
+          >
+            Login <ArrowRight size={20} />
           </Button>
-        </div>
+         
+        </Form>
       </div>
     </div>
   );
