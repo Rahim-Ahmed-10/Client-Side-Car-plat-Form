@@ -60,9 +60,11 @@ export default function Navbar() {
               )}
             </svg>
           </button>
-          <div className="flex items-center gap-3">
-            {/* <Logo /> */}
-           Car Plaform
+         <div className="space-y-4">
+            <h2 className="text-3xl font-extrabold tracking-tight text-blue-500">
+              Car<span className="text-black">Platform</span>
+            </h2>
+            
           </div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">
@@ -99,36 +101,50 @@ export default function Navbar() {
           </Link>
 
 
-              {user && (
-        <div className="relative group">
-          {/* প্রোফাইল বাটন/আইকন */}
-          <button className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-full hover:bg-gray-200">
-             <span>{user.name || "Profile"}</span>
-          </button>
+              {/* মূল কন্টেইনার - এটা বাটন আর মেনুকে একসাথে ধরে রাখবে */}
+<div className="relative group">
+  
+  {/* প্রোফাইল বাটন: এখানে মাউস আনলে মেনু আসবে */}
+  <button className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-gray-200 transition-all">
+    <img 
+      src={user?.image || "https://cdn-icons-png.flaticon.com/512/149/149071.png"} 
+      alt="User Profile" 
+      className='w-10 h-10 rounded-full border-2' 
+    />
+    <div className="text-left">
+       <p className="text-sm font-semibold">Nazmus Sakib</p>
+       <p className="text-xs text-gray-500">Student</p>
+    </div>
+  </button>
 
-          {/* ড্রপডাউন মেনু (Hover করলে দেখা যাবে) */}
-          <div className="absolute right-0 hidden group-hover:block bg-white border shadow-lg rounded-md w-40 p-2 z-50">
-            
-            {/* Settings অপশন */}
-            <Link 
-              href="/settings" 
-              className="block px-4 py-2 text-sm hover:bg-gray-100 rounded"
-            >
-              Settings
-            </Link>
+  {/* ড্রপডাউন মেনু: ডিফল্টভাবে hidden থাকে, group-hover হলে block হয় */}
+  <div className="absolute right-0 hidden group-hover:block bg-white border shadow-lg rounded-md w-52 p-2 z-50">
+    
+    <div className="px-4 py-2 border-b">
+       <p className="text-sm font-bold text-gray-700">Welcome back!</p>
+       <p className="text-xs text-gray-500">sakib@gmail.com</p>
+    </div>
 
-            <hr className="my-1" />
+    <Link href="/dashboard" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded mt-1">
+      Dashboard
+    </Link>
 
-            {/* Logout অপশন */}
-            <button 
-              onClick={handleLogout}
-              className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      )}
+    <Link href="/settings" className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">
+      Settings
+    </Link>
+
+    <hr className="my-1 border-gray-100" />
+
+    <button 
+      onClick={handleLogout} 
+      className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded"
+    >
+      Log Out
+    </button>
+    
+  </div>
+</div>
+           
 
         </div>
       </header>
@@ -157,7 +173,9 @@ export default function Navbar() {
             </li>
 
             <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
-            
+              <Link href="/profile" className="block py-2">
+                Profile
+              </Link>
               <Link href="/login" className="block py-2">
                 Login
               </Link>
@@ -167,37 +185,12 @@ export default function Navbar() {
                   Sign Up
                 </Button>
               </Link>
-
-              {user && (
-        <div className="relative group">
-          {/* প্রোফাইল বাটন/আইকন */}
-          <button className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-full hover:bg-gray-200">
-             <span>{user.name || "Profile"}</span>
-          </button>
-
-          {/* ড্রপডাউন মেনু (Hover করলে দেখা যাবে) */}
-          <div className="absolute right-0 hidden group-hover:block bg-white border shadow-lg rounded-md w-40 p-2 z-50">
-            
-            {/* Settings অপশন */}
-            <Link 
-              href="/settings" 
-              className="block px-4 py-2 text-sm hover:bg-gray-100 rounded"
-            >
-              Settings
-            </Link>
-
-            <hr className="my-1" />
-
-            {/* Logout অপশন */}
-            <button 
+              <button 
               onClick={handleLogout}
               className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded"
             >
               Logout
             </button>
-          </div>
-        </div>
-      )}
             </li>
           </ul>
         </div>
