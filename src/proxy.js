@@ -18,5 +18,5 @@ export async function proxy(request) {
 // export default function proxy(request: NextRequest) { ... }
  
 export const config = {
-  matcher: '/explore-car/:id',
+  matcher: ['/explore-car/:id','/add-car','/my-bookings'],
 }

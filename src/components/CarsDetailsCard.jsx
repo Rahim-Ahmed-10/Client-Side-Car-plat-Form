@@ -12,7 +12,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const CarsDetailsCard = ({ carData }) => {
-  // আপনার API ডাটা অনুযায়ী ডেস্ট্রাকচারিং
+  
   const { 
     carName, 
     dailyRentPrice, 
