@@ -116,16 +116,6 @@ const Banner = () => {
     desc: 'with executive sedans tailored for your high-profile business meetings.',
     btnText: 'View Executive Fleet',
   },
-  {
-    id: 11,
-    bgImage: 'https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?auto=format&fit=crop&q=80&w=1920',
-    titleTop: 'WEEKEND',
-    titleBottom: 'GETAWAY',
-    subTitle: 'Start Your Dream',
-    highlightText: 'vacation',
-    desc: 'with our reliable hatchbacks perfect for short city escapes.',
-    btnText: 'View Compact Fleet',
-  }
   ];
 
   // Framer Motion Animation Variants

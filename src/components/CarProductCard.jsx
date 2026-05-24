@@ -9,11 +9,11 @@ const CarsCard = ({ car }) => {
   const {
     _id,
     imageUrl,
-    CarName,
+    carName,
     dailyRentPrice,
     availabilityStatus,
     carType,
-    location,
+    pickupLocation,
     seatCapacity,
   } = car;
 
@@ -37,7 +37,7 @@ const CarsCard = ({ car }) => {
       <div className="relative h-48 w-full bg-slate-800 overflow-hidden">
         <motion.img
           src={imageUrl}
-          alt={CarName}
+          alt={carName}
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.05 }} // Subtle zoom
           transition={{ duration: 0.5 }}
@@ -69,13 +69,13 @@ const CarsCard = ({ car }) => {
         animate="visible"
       >
         <div className="flex items-center justify-between gap-2 mb-2">
-          {/* Animated Car Name */}
+          {/* Animated car Name */}
           <motion.h3
             className="text-xl font-bold text-white line-clamp-1 m-0"
             whileHover={{ color: '#60a5fa' }} // Light blue color on hover
             transition={{ duration: 0.2 }}
           >
-            {CarName}
+            {carName}
           </motion.h3>
           <span className="text-xs font-medium px-2 py-0.5 bg-blue-600/10 text-slate-300 border border-blue-500/20 rounded-md">
             {carType}
@@ -86,7 +86,7 @@ const CarsCard = ({ car }) => {
           <span className="text-rose-400">
             <IoLocationSharp />
           </span>
-          <span>{location}</span>
+          <span>{pickupLocation}</span>
         </p>
 
         {/* Improved Micro Specs Styling */}

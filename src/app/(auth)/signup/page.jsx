@@ -16,7 +16,7 @@ const SignUpPage = () => {
 
     const formData = new FormData(e.currentTarget);
 
-    const { name, email, password } = Object.fromEntries(
+    const { name, email, password, url } = Object.fromEntries(
       formData.entries()
     );
 
@@ -24,7 +24,8 @@ const SignUpPage = () => {
       name,
       email,
       password,
-      
+      url,
+      // callbackURL:"/"
     });
 
     if (error) {
