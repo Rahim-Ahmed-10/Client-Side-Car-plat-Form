@@ -12,7 +12,7 @@ export default function Navbar() {
 
   // const { data: session, } = authClient.useSession()
   // console.log(session);
-   const { data: session, isPending } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
   console.log(session)
 
   const user = session?.user;
@@ -26,7 +26,6 @@ export default function Navbar() {
       },
     });
   };
- 
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
@@ -62,11 +61,11 @@ export default function Navbar() {
               )}
             </svg>
           </button>
-         <div className="space-y-4">
+          <div className="space-y-4">
             <h2 className="text-3xl font-extrabold tracking-tight text-blue-500">
               Car<span className="text-black">Platform</span>
             </h2>
-            
+
           </div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">
@@ -93,49 +92,48 @@ export default function Navbar() {
 
 
           <div className="flex items-center gap-4">
-  {user ? (
-    /* ১. ইউজার লগইন থাকলে এই প্রোফাইল মেনু দেখাবে */
-    <div className="relative group">
-      <button className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-gray-200 transition-all">
-        <img 
-  src={session?.user?.image || "https://i.ibb.co/5RkV0Yv/user-placeholder.png"} 
-  alt="User Profile" 
-  className='w-10 h-10 rounded-full border-2 object-cover'
-  onError={(e) => {
-    e.target.src = "https://i.ibb.co/5RkV0Yv/user-placeholder.png";
-  }}
-/>
-        <div className="text-left hidden md:block">
-          <p className="text-sm font-semibold">{user?.name || "Nazmus Sakib"}</p>
-          <p className="text-xs text-gray-500">Student</p>
-        </div>
-      </button>
+            {user ? (
+              <div className="relative group">
+                <button className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-gray-200 transition-all">
+                  <img
+                    src={session?.user?.image || "https://i.ibb.co/5RkV0Yv/user-placeholder.png"}
+                    alt="User Profile"
+                    className='w-10 h-10 rounded-full border-2 object-cover'
+                    onError={(e) => {
+                      e.target.src = "https://i.ibb.co/5RkV0Yv/user-placeholder.png";
+                    }}
+                  />
+                  <div className="text-left hidden md:block">
+                    <p className="text-sm font-semibold">{user?.name || "Nazmus Sakib"}</p>
+                    <p className="text-xs text-gray-500">Student</p>
+                  </div>
+                </button>
 
-      {/* ড্রপডাউন মেনু */}
-      <div className="absolute right-0 hidden group-hover:block bg-white border shadow-lg rounded-md w-52 p-2 z-50">
-        <div className="px-4 py-2 border-b">
-          <p className="text-sm font-bold text-gray-700">Welcome back!</p>
-          <p className="text-xs text-gray-500 truncate">{user?.email}</p>
-        </div>
-        <Link href="/dashboard" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded mt-1">Dashboard</Link>
-        <Link href="/settings" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded">Settings</Link>
-        <hr className="my-1" />
-        <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded">
-          Log Out
-        </button>
-      </div>
-    </div>
-  ) : (
-    /* ২. ইউজার লগআউট থাকলে এই বাটনগুলো দেখাবে */
-    <div className="flex items-center gap-4">
-      <Link href="/login" className="text-sm font-medium hover:text-blue-600">Login</Link>
-      <Link href="/signup" className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
-        Sign Up
-      </Link>
-    </div>
-  )}
-</div>
-           
+                {/* ড্রপডাউন মেনু */}
+                <div className="absolute right-0 hidden group-hover:block bg-white border shadow-lg rounded-md w-52 p-2 z-50">
+                  <div className="px-4 py-2 border-b">
+                    <p className="text-sm font-bold text-gray-700">Welcome back!</p>
+                    <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+                  </div>
+                  <Link href="/my-bookings" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded mt-1">My Bookings</Link>
+                  <Link href="/add-car" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded mt-1">Add Cars</Link>
+                  <Link href="/settings" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded">Settings</Link>
+                  <hr className="my-1" />
+                  <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded">
+                    Log Out
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-center gap-4">
+                <Link href="/login" className="text-sm font-medium hover:text-blue-600">Login</Link>
+                <Link href="/signup" className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                  Sign Up
+                </Link>
+              </div>
+            )}
+          </div>
+
 
         </div>
       </header>
@@ -176,12 +174,12 @@ export default function Navbar() {
                   Sign Up
                 </Button>
               </Link>
-              <button 
-              onClick={handleLogout}
-              className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded"
-            >
-              Logout
-            </button>
+              <button
+                onClick={handleLogout}
+                className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded"
+              >
+                Logout
+              </button>
             </li>
           </ul>
         </div>

@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Link } from '@heroui/react';
+import EnrollmentButton from './EnrollmentButton';
 
 const CarsDetailsCard = ({ carData }) => {
   
@@ -80,10 +82,13 @@ const CarsDetailsCard = ({ carData }) => {
                 <div className="p-3 bg-white rounded-xl shadow-sm text-blue-600">
                   <Users className="w-5 h-5" />
                 </div>
-                <div>
-                  <p className="text-[10px] text-gray-400 font-bold uppercase">Capacity</p>
-                  <p className="text-sm font-bold text-gray-800">{seatCapacity} Seats</p>
-                </div>
+               <div>
+  <p className="text-[10px] text-gray-400 font-bold uppercase">Capacity</p>
+  {/* carData.capacity ব্যবহার করুন যা ডাটাবেজ থেকে আপডেট হয়ে আসবে */}
+  <p className="text-sm font-bold text-gray-800">
+    {carData?.capacity || seatCapacity} Seats
+  </p>
+</div>
               </div>
 
               <div className="flex items-center gap-4 bg-gray-50/50 p-4 rounded-2xl border border-gray-100">
@@ -109,13 +114,9 @@ const CarsDetailsCard = ({ carData }) => {
 
           {/* Action Buttons */}
           <div className="flex gap-4 mt-10">
-            <motion.button 
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex-[4] bg-gray-900 hover:bg-black text-white py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-xl shadow-gray-200"
-            >
-              Book Now <ArrowRight className="w-5 h-5" />
-            </motion.button>
+          
+            <EnrollmentButton carData={carData} />
+
             <button className="flex-1 border-2 border-gray-100 rounded-2xl hover:bg-gray-50 transition-colors flex items-center justify-center">
               <CarFront className="w-6 h-6 text-gray-700" />
             </button>

@@ -30,7 +30,7 @@ const LoginPage = () => {
   
       if (error) {
         console.log(error);
-        toast.error(error.message || "Sign up failed");
+        toast.error(error.message || "login up failed");
         return;
       }
   
