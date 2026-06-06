@@ -35,24 +35,25 @@ const CarsDetailsCard = ({ carData }) => {
       <div className="flex flex-col lg:flex-row gap-10">
         
         {/* Image Section */}
-        <div className="lg:w-1/2">
-          <div className="relative h-[350px] md:h-[450px] w-full rounded-[2rem] overflow-hidden shadow-lg group">
-            <Image 
-              src={imageUrl || "https://via.placeholder.com/600x400"} 
-              alt={carName || "Car"} 
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-            />
-            {/* Availability Status Badge */}
-            <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
-              <BadgeCheck className={`w-4 h-4 ${availabilityStatus === 'Available' ? 'text-green-500' : 'text-orange-500'}`} />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-800">
-                {availabilityStatus || "Premium"}
-              </span>
-            </div>
-          </div>
-        </div>
+<div className="lg:w-1/2">
+  <div className="relative h-[350px] md:h-[450px] w-full rounded-[2rem] overflow-hidden shadow-lg group">
+    <Image 
+      // এখানে রিমোট লিঙ্কের বদলে একটি লোকাল ইমেজ পাথ অথবা খালি স্ট্রিং চেক ব্যবহার করতে পারেন
+      src={imageUrl || "/placeholder.jpg"}  // আপনার public/ ফোল্ডারে একটি placeholder.jpg রেখে দিলে সবচেয়ে ভালো হয়
+      alt={carName || "Car"} 
+      fill
+      className="object-cover transition-transform duration-700 group-hover:scale-110"
+      priority
+    />
+    {/* Availability Status Badge */}
+    <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
+      <BadgeCheck className={`w-4 h-4 ${availabilityStatus === 'Available' ? 'text-green-500' : 'text-orange-500'}`} />
+      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-800">
+        {availabilityStatus || "Premium"}
+      </span>
+    </div>
+  </div>
+</div>
 
         {/* Info Section */}
         <div className="lg:w-1/2 flex flex-col justify-between">

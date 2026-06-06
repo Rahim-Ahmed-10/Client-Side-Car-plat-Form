@@ -6,7 +6,9 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 import CarProductCard from './CarProductCard';
 
 const PopularCar = async () => {
-const res = await fetch('http://localhost:8085/carProducts');
+const res = await fetch('https://car-rental-sirver.vercel.app/carProducts',{
+  cache: 'no-store'
+});
 const cars = await res.json();
 
 

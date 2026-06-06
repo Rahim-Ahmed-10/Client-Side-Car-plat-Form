@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚗 CarPlatform - Modern Car Finding & Booking Hub
 
-## Getting Started
+**CarPlatform** একটি আধুনিক কার ফাইন্ডিং এবং বুকিং প্ল্যাটফর্ম অ্যাপ্লিকেশন যা Next.js ব্যবহার করে তৈরি করা হয়েছে। এখানে ইউজাররা সহজে ও নিরাপদ মাধ্যমে তাদের পছন্দের গাড়ি খুঁজে পেতে, বুকিং করতে এবং নিজেদের গাড়ি লিস্টিং করতে পারেন।
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 Project Links
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* **Live Demo:** [CarPlatform Live](https://car-platform-side.vercel.app)  
+* **GitHub Repository:** [CarPlatform GitHub Repo Client Side](https://github.com/Rahim-Ahmed-10/Client-Side-Car-plat-Form)
+* **GitHub Repository:** [CarPlatform GitHub Repo Server Side](https://github.com/Rahim-Ahmed-10/car-drive-2026)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Key Features (প্রধান বৈশিষ্ট্যসমূহ)
 
-## Learn More
+* **Next.js Power:** আধুনিক অ্যাপ রাউটার এবং দ্রুতগতির পারফরম্যান্স এনশিওর করতে সার্ভার সাইড রেন্ডারিং (SSR) ব্যবহার করা হয়েছে।
+* **Smart Navigation & UI:** হোম, এক্সপ্লোর কার, বুকিং এবং কার লিস্টিংয়ের জন্য সহজ ও আকর্ষণীয় ইন্টারফেস।
+* **Better Auth Integration:** নিরাপদ লগইন, সাইন-আপ, প্রোফাইল ড্রপডাউন এবং পার্সোনালাইজড সেশন ম্যানেজমেন্ট।
+* **List Your Car:** ইউজারদের জন্য নিজেদের গাড়ি বিক্রয় বা ভাড়ার উদ্দেশ্যে প্ল্যাটফর্মে যুক্ত করার সুবিধা।
+* **Responsive UI:** সব ধরনের ডিভাইসে (মোবাইল, ট্যাবলেট, ডেস্কটপ) নিখুঁত ও চমৎকার ইউজার এক্সপেরিয়েন্স।
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack (ব্যবহৃত প্রযুক্তি)
 
-## Deploy on Vercel
+* **Framework:** Next.js (App Router)
+* **Styling:** Tailwind CSS
+* **Authentication:** Better Auth (auth-client)
+* **Components:** HeroUI (NextUI)
+* **Icons:** React Icons (FaFacebookF, FaGithub, FaLinkedinIn, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, BsInstagram)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 
+**Md. Rahim Miah** | [GitHub Profile](https://github.com/Rahim-Ahmed-10)

@@ -39,6 +39,7 @@ export default function EnrollmentButton({ carData }) {
 
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/enrollments/${carData._id}`, {
                 method: "PATCH",
+                cache: 'no-store',
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`

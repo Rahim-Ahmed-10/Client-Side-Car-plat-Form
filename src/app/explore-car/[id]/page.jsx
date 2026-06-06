@@ -12,13 +12,14 @@ const CarsDetailsPage = async ({params}) => {
         headers: await headers(),
     });
 
-    const res = await fetch(`http://localhost:8085/carProducts/${id}`, {
+    const res = await fetch(`https://car-rental-sirver.vercel.app/carProducts/${id}`, {
         headers: {
             authorization: `Bearer ${token}`,
         },
         cache: 'no-store' 
     });
     
+    console.log("Fetched Car Data:", res);
     const data = await res.json();
 
     return (

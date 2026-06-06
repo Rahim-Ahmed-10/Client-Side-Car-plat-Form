@@ -1,7 +1,7 @@
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import React from 'react';
-import DeleteBookingButton from '@/components/DeleteBookingButton'; // বাটনটি ইম্পোর্ট করুন
+import DeleteBookingButton from '@/components/DeleteBookingButton'; 
 
 const MyBookingsPage = async () => {
   const sessionHeaders = await headers();
